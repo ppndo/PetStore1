@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Store</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,6 +21,24 @@
         <main>
             <section class="featured">
                 <h2>All Pets Display</h2>
+                <div style="display: flex; gap: 24px; justify-content: center">
+                        <div style="display:flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span style="font-weight: bold; font-size: 1.1em; color: #333;">Type:</span>
+                            <div>
+                                <input type="checkbox" id="type-dogs" name="pet-type" value="Dog" checked /> Dogs
+                            </div>
+                            <div>
+                                <input type="checkbox" id="type-cats" name="pet-type" value="Cat" checked /> Cats
+                            </div>
+                            <div>
+                                <input type="checkbox" id="type-capybaras" name="pet-type" value="Capybara" checked />Capybaras
+                            </div>
+                            <div>
+                                <input type="checkbox" id="type-birds" name="pet-type" value="Bird" checked /> Birds
+                            </div>
+                        </div>
+                </div>
+            
                 <div id ="pet-list" class="pet-lists">
                     <!--<div class="pet">
                         <img src="images/dogs/dog01.jpg" alt="Cute Dog">
@@ -33,6 +52,7 @@
                         <button onclick="adoptPet()">Adopt Now</button>
                     </div>-->
                 </div>
+            
                 <div id="customNotification" class="notification-container">
                     <div class="notification-content">
                     <span class="close-btn">&times;</span>

@@ -41,6 +41,7 @@ nav a {
 .pet-list { 
 
     display: flex; 
+    flex-wrap: wrap;
 
     justify-content: center; 
 
@@ -58,16 +59,16 @@ nav a {
     height: 8px; 
 }
 .pet-lists::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #e9f1f2; 
     border-radius: 10px;
 }
 
 .pet-lists::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #0a7c96; 
     border-radius: 10px;
 }
 .pet-lists::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #31d0e1; 
 }
 .pet { 
     border: 2px solid #1aa1a6; 
@@ -89,7 +90,7 @@ button {
 
 button:hover { 
 
-    background-color: #005f73; 
+    background-color: #15bf0c; 
 
 } 
 .notification-container {
@@ -165,4 +166,9 @@ button:hover {
     color: rgb(245, 241, 241);
     text-decoration: none;
     cursor: pointer;
+}
+
+.carousel img {
+    width: 100%;
+    height: 400px;
 }

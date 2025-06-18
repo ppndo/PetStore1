@@ -32,6 +32,45 @@ function loadPets() {
       `;
       petList.appendChild(petDiv);
     });
-    console.log('Pets loaded successfully.');
+  petList.on("click", ".adopt-btn", adoptPet);
+  $('input[name="pet-type"]').on("change", function () {
+    filterPets();
+
+  });
 }
+
+function filterPets() {
+  const types = $('input[name="pet-type"]:checked')
+    .map(function () {
+      return $(this).val(); 
+    })
+    .get(); 
+
+  let filteredPets = [];
+  if (types.length === 0) {
+    filteredPets = [];
+  } else {
+    filteredPets = pets.filter((pet) => types.includes(pet.type));
+  }
+
+  const petList = $("#pet-list");
+  petList.empty(); 
+  if (filteredPets.length === 0) {
+    petList.append($('<p>').addClass('no-pets-message').text('No pets match your current selection.'));
+    return; 
+  }
+  filteredPets.forEach((pet) => {
+    const petItem = $("<div>").addClass("pet").html(`
+      <img src="${pet.images}" alt="${pet.name}"> <h3>${pet.name} - ${pet.type}</h3>
+      <p>Type: ${pet.type}</p>
+      <p>Age: ${pet.age} years</p>
+      <button class="adopt-btn" onclick="adoptPet()">Adopt Now</button> `);
+    petList.append(petItem);
+  });
+}
+$(document).ready(function() {
+    filterPets();
+    $('input[name="pet-type"]').on('change', filterPets);
+});
+
 document.addEventListener('DOMContentLoaded', loadPets);
